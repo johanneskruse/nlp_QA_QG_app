@@ -1,2 +1,2 @@
-# nlp_streamlit_QG_QA_demo
+# Streamlit demo for Question Generation and Question Answering
 Demos
