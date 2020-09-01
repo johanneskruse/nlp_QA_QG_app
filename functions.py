@@ -7,11 +7,6 @@ import allennlp_models.rc
 import torch
 import transformers
 
-# from transformers import BertForQuestionAnswering
-# from transformers import BertTokenizer
-
-# import pandas as pd
-
 from question_generation.pipelines import pipeline as qg_pipline
 from transformers import pipeline as qa_pipline
 
@@ -25,26 +20,10 @@ class Config:
     models_qa = {
         "ELMo-BiDAF (Trained on SQuAD)" : "allennlp",
         "BiDAG (Trained on SQuAD)" : "allennlp",
-        "Transformer QA (Trained on SQuAD)" : "allennlp",
+        # "Transformer QA (Trained on SQuAD)" : "allennlp", # not working [hack]
         "distilbert-base-cased-distilled-squad" : "huggingface_pipline", 
         "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline" 
         }
-    
-    # models_qa = {
-    #     "1" : "ELMo-BiDAF (Trained on SQuAD)", # allennlp
-    #     "2" : "BiDAG (Trained on SQuAD)", # allennlp
-    #     "3" : "Transformer QA (Trained on SQuAD)", # allennlp
-    #     "4" : "distilbert-base-cased-distilled-squad", # huggingface
-    #     "5" : "bert-large-uncased-whole-word-masking-finetuned-squad" # huggingface
-    #     }
-
-    # models_qa = {
-    #     "ELMo-BiDAF (Trained on SQuAD)" : "allennlp"
-    #     "BiDAG (Trained on SQuAD)" : "allennlp"
-    #     "Transformer QA (Trained on SQuAD)" : "allennlp"
-    #     "distilbert-base-cased-distilled-squad" : "huggingface_pipline"
-    #     "bert-large-uncased-whole-word-masking-finetuned-squad" "huggingface_pipline"
-    #     }
 
 
     demo_text_qg = "Infosys Limited, is an Indian multinational corporation" \

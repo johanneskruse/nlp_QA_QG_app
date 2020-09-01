@@ -19,8 +19,12 @@ demo_ques_qa = Config.demo_text_qa["question"]
 def main_screen():
     st.title("Question Answering & Question Generation")
     st.subheader("Information regadring the demos")
+    st.write("In this demo you will find ")
     st.subheader("Github")
+    st.write("")
     st.subheader("COLAB demo")
+    st.write("It is possible to run the whole app through a COLAB notebook"\
+        "just follow the link: ")
 
 #===============================================================================
 
