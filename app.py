@@ -2,17 +2,10 @@
 import streamlit as st
 from screens import *
 
-import git
-import os
-
-if not os.path.exists(f"{os.getcwd()}/question_generation/"):
-    git.Git(os.getcwd()).clone("https://github.com/patil-suraj/question_generation.git")
-
 #===============================================================================
 
 PAGE_CONFIG = {"page_title":"QG_QA_demo.io","page_icon":":shark:","layout":"centered"}
 st.beta_set_page_config(**PAGE_CONFIG)
-
 
 # App start: 
 def main():

@@ -7,6 +7,12 @@ import allennlp_models.rc
 import torch
 import transformers
 
+import git
+import os
+
+if not os.path.exists(f"{os.getcwd()}/question_generation/"):
+    git.Git(os.getcwd()).clone("https://github.com/patil-suraj/question_generation.git")
+
 from question_generation.pipelines import pipeline as qg_pipline
 from transformers import pipeline as qa_pipline
 

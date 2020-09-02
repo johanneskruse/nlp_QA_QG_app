@@ -14,7 +14,7 @@ The setup file will install the packages:
 - gitpython
 - nltk (python -m nltk.downloader punkt)
 - allennlp (1.0.0)
-- allennlp_models
+- allennlp_models (1.0.0)
 - transformers (3.0.0)
 
 Also a clone of hte clone the git repository `question_generation` will be downloaded. 

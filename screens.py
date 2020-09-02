@@ -17,17 +17,6 @@ demo_text_qg = Config.demo_text_qg
 demo_text_qa = Config.demo_text_qa["context"]
 demo_ques_qa = Config.demo_text_qa["question"]
 
-#===============================================================================
-
-def main_screen():
-    st.title("Question Answering & Question Generation")
-    st.subheader("Information regadring the demos")
-    st.write("In this demo you will find ")
-    st.subheader("Github")
-    st.write("")
-    st.subheader("COLAB demo")
-    st.write("It is possible to run the whole app through a COLAB notebook"\
-        "just follow the link: ")
 
 #===============================================================================
 
@@ -113,6 +102,34 @@ def QA_screen():
     #####################################
     
     
+#===============================================================================
+
+def main_screen():
+    st.title("Question Answering & Question Generation")
+    st.subheader("Welcome :trophy:")
+    st.write("Hello there!")
+    st.write("In this prototype you are able to play around with state-of-the-art "\
+            "models"\
+
+            )
+
+
+    
+    st.subheader("Github :zap:")
+    st.write("You have most ")
+    
+
+    #####################################
+    st.subheader("COLAB :crocodile:")
+    st.write("To play around with all of models can be both demanding in storage"\
+            "(~6gb) and can be computationally. To cope with this a COLAB notebook has"\
+            "been developed, which enables you to run the streamlit app through COLAB."\
+            "Models are now stored and computationen made on using Google service.")
+    st.write("https://colab.research.google.com/drive/1zjWn1OEvL_OJxQufjCnrtIIq25qT9DMz?usp=sharing")
+    st.write("Note you will need to modify the script a little bit by adding"\
+            "your own ngrok to generate the localhost server.")
+
+
 
 
 

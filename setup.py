@@ -22,16 +22,10 @@ setup(
         # for allennlp models
         "allennlp-models==1.0.0",
         # for Transformers
-        "transformers==3.0.0",
+        "transformers==3.0.0"
     ],
     python_requires=">=3.6.0"
 )
-
-import git
-import os
-
-if not os.path.exists(f"{os.getcwd()}/question_generation/"):
-    git.Git(os.getcwd()).clone("https://github.com/patil-suraj/question_generation.git")
 
 
 
