@@ -45,6 +45,14 @@ Note, in ```functions.py``` Also a clone of hte clone the git repository `questi
 
 # ##############################################################################
 
+# COLAB Notebook
+To play around with all of models can be both demanding in storage (~6gb) and can be computationally. To cope with this a COLAB notebook has been developed, which enables you to run the streamlit app through COLAB. Models are now stored and computationen made on using Google service. 
+- https://colab.research.google.com/drive/1zjWn1OEvL_OJxQufjCnrtIIq25qT9DMz?usp=sharing
+
+Note you will need to modify the script a little bit by adding your own ngrok to generate the localhost server.
+
+# ##############################################################################
+
 # Models
 The app is essential a *wrapper* for a number of models glued together with a friendly user interface. None of the models are fine-tuned and are simple implemented using a user friendly API *pipeline* format.
 
@@ -65,10 +73,3 @@ The Question Generation is a pre-trained model with three pipeline tasks:
 
 With the option of using a model sizes "small" or a "base" (https://huggingface.co/models). All models are easily implemented but for this demo ***only the end-to-end question generation is included in this demo (both the small and base model)***. For fine-tuning the models please look at the patil-suraj's git repository. 
 
-# ##############################################################################
-
-# COLAB Notebook
-To play around with all of models can be both demanding in storage (~6gb) and can be computationally. To cope with this a COLAB notebook has been developed, which enables you to run the streamlit app through COLAB. Models are now stored and computationen made on using Google service. 
-- https://colab.research.google.com/drive/1zjWn1OEvL_OJxQufjCnrtIIq25qT9DMz?usp=sharing
-
-Note you will need to modify the script a little bit by adding your own ngrok to generate the localhost server.
