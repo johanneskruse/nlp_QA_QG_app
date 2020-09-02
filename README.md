@@ -8,7 +8,7 @@ To install necesarry dependencies simple run
 ```
 pip install -r requirements.txt
 ```
-Note AllenNLP is currently only supported on Mac and Linux environment.
+**Note AllenNLP is currently only supported on Mac and Linux environment.**
 
 This will intall the packages: 
 - streamlit 
