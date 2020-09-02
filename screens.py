@@ -4,6 +4,7 @@ from functions import *
 
 import nltk
 nltk.download('punkt')
+
 from nltk.tokenize import sent_tokenize
 
 import numpy as np
@@ -69,7 +70,7 @@ def QA_screen():
     #### Context setence by setence ####
     sentences_qa = sent_tokenize(user_context_qa)
     list_context("Sentences", sentences_qa, checkbox=True)
-        
+    
     st.subheader("Provide the question(s):")
     user_question_qa = st.text_area("Please provide question text:", height=50,
                                 value=f"{demo_ques_qa}", max_chars=200)
@@ -83,7 +84,8 @@ def QA_screen():
     answers = {}
     for i, question in enumerate(questions):
         st.write(f"{i+1}. **Question**: {question}")
-        answer = qa_compute_answer(nlp_qa, questions[i], user_context_qa, models_dict_qa[option_qa])
+        answer = qa_compute_answer(nlp_qa, questions[i], 
+                                    user_context_qa, models_dict_qa[option_qa])
         
         answers[answer] = answer_index(answer, user_context_qa)
         st.write(f"{i+1}. **Answer**: {answer}")
@@ -114,10 +116,10 @@ def main_screen():
     #####################################
     st.subheader("About :trophy:")
     st.write("Hello there and welcome!")
-    st.write("In this prototype you are able to play around with state-of-the-art "\
-            "NLP models in an easy user friendly environment.")
-    st.write("There are two main task, namely; Question Answering and Question Generation."\
-        " Use the sidebar to navigate to them respectively.")
+    st.write("In this prototype you are able to play around with "\
+            "state-of-the-art NLP models in an easy user friendly environment.")
+    st.write("There are two main task, namely; Question Answering and Question "\
+            "Generation. Use the sidebar to navigate to them respectively.")
     
     #####################################
     st.subheader("Github :zap:")

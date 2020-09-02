@@ -8,6 +8,7 @@ To install necesarry dependencies simple run
 ```
 pip install -r requirements.txt
 ```
+Note AllenNLP is currently only supported on Mac and Linux environment.
 
 This will intall the packages: 
 - streamlit 
@@ -17,9 +18,11 @@ This will intall the packages:
 - allennlp_models (1.0.0)
 - transformers (3.0.0)
 
+Next clone you will need to clone the ```question_generation``` git repository. This can either be done in terminal or simple by running the app, as ```functions.py``` will do this for you.
 
-When running the app, 
-Also a clone of hte clone the git repository `question_generation` will be downloaded. 
+```
+git clone https://github.com/patil-suraj/question_generation.git
+```
 
 All credits to patil-suraj for making a awesome end-to QG framework that mimics 🤗 transformers pipeline for easy inference (https://github.com/patil-suraj/question_generation). 
 
@@ -32,7 +35,9 @@ Once streamlit and the other dependicies are installed you can simple run the ap
 streamlit run app.py
 ```
 
-The app will run in a localhost server.
+The app will now run in a localhost server.
+
+Note, in ```functions.py``` Also a clone of hte clone the git repository `question_generation` will be downloaded. 
 
 # ##############################################################################
 
