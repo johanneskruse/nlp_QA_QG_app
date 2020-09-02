@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: qa-qg-streamlit
+Version: 1.0.0
+Summary: Question Answering Question Generation streamlit app
+Home-page: https://github.com/JKrse/nlp_streamlit_QG_QA
+Author: Johannes Kruse
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.0

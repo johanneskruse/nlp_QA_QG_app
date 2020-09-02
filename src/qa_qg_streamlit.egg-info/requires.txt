@@ -1,0 +1,7 @@
+pandas
+streamlit
+gitpython
+nltk
+allennlp==1.0.0
+allennlp_models
+transformers==3.0.0
