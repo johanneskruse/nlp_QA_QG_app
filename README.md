@@ -1,4 +1,4 @@
-# Steamlit App for Question Answering & Question Generation
+# Question Answering & Question Generation App
 ## Welcome 🏆
 With this streamlit app you are able to play around with state-of-the-art NLP models in an easy user friendly environment.
 
