@@ -1,7 +1,0 @@
-README.md
-setup.py
-src/qa_qg_streamlit.egg-info/PKG-INFO
-src/qa_qg_streamlit.egg-info/SOURCES.txt
-src/qa_qg_streamlit.egg-info/dependency_links.txt
-src/qa_qg_streamlit.egg-info/requires.txt
-src/qa_qg_streamlit.egg-info/top_level.txt

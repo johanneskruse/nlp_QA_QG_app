@@ -4,12 +4,12 @@
 It's super easy, we promise!
 
 ## Preprare Envirorment
-To install necesarry dependencies run the setup file
+To install necesarry dependencies simple run
 ```
-python setup.py install
+pip install -r requirements.txt
 ```
 
-The setup file will install the packages: 
+This will intall the packages: 
 - streamlit 
 - gitpython
 - nltk (python -m nltk.downloader punkt)
@@ -17,6 +17,8 @@ The setup file will install the packages:
 - allennlp_models (1.0.0)
 - transformers (3.0.0)
 
+
+When running the app, 
 Also a clone of hte clone the git repository `question_generation` will be downloaded. 
 
 All credits to patil-suraj for making a awesome end-to QG framework that mimics 🤗 transformers pipeline for easy inference (https://github.com/patil-suraj/question_generation). 

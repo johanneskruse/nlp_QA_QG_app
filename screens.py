@@ -22,11 +22,15 @@ demo_ques_qa = Config.demo_text_qa["question"]
 
 def QG_screen():
     st.title("Question Generation")	
-    
+    st.write("Question Generation (QG) aims to generate natural language, "\
+            "questions based on given contents where the generated questions "\
+            "need to be able to be answered by the contents.")
     #####################################
+    st.subheader("Model selection")
     #### Model select and user input ####
     option_qg = st.selectbox("Select model size:",
                         (list(models_dict_qg.keys())))
+    st.subheader("Provide context")
     user_input_qg = st.text_area("Please provide context text:", height=200,
                                 value=f"{demo_text_qg}", max_chars=500)
     
@@ -49,15 +53,16 @@ def QG_screen():
 
 def QA_screen():
     st.title("Question Answering")
-
+    st.write("Reading comprehension is the task of answering questions about "\
+        "a passage of text to show that the system understands the passage.")
     #####################################
     #### Model select and user input ####
     st.subheader("Model selection")
     option_qa = st.selectbox("Select model:",
         (list(models_dict_qa.keys())))
 
-    st.subheader("Provide the context:")
-    user_context_qa = st.text_area("Please provide context text:", height=100,
+    st.subheader("Provide context:")
+    user_context_qa = st.text_area("Please provide text:", height=100,
                                 value=f"{demo_text_qa}", max_chars=500)
     
     #####################################
@@ -106,18 +111,18 @@ def QA_screen():
 
 def main_screen():
     st.title("Question Answering & Question Generation")
-    st.subheader("Welcome :trophy:")
-    st.write("Hello there!")
+    #####################################
+    st.subheader("About :trophy:")
+    st.write("Hello there and welcome!")
     st.write("In this prototype you are able to play around with state-of-the-art "\
-            "models"\
-
-            )
-
-
+            "NLP models in an easy user friendly environment.")
+    st.write("There are two main task, namely; Question Answering and Question Generation."\
+        " Use the sidebar to navigate to them respectively.")
     
+    #####################################
     st.subheader("Github :zap:")
-    st.write("You have most ")
-    
+    st.write("You can find the git repository for the app here:")
+    st.write("https://github.com/JKrse/nlp_streamlit_QG_QA")
 
     #####################################
     st.subheader("COLAB :crocodile:")
