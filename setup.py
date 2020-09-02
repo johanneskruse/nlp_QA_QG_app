@@ -18,14 +18,21 @@ setup(
         # Preposseing
         "nltk",
         # for allennlp models
-        "allennlp == 1.0.0",
+        "allennlp==1.0.0",
         # for allennlp models
-        "allennlp_models",
+        "allennlp-models==1.0.0",
         # for Transformers
         "transformers==3.0.0",
     ],
     python_requires=">=3.6.0"
 )
+
+import git
+import os
+
+if not os.path.exists(f"{os.getcwd()}/question_generation/"):
+    git.Git(os.getcwd()).clone("https://github.com/patil-suraj/question_generation.git")
+
 
 
 
