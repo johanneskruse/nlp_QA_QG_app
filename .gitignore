@@ -3,4 +3,4 @@ __pycache__
 question_generation
 build
 dist
-scr/*
+scr/qa_qg_streamlit.egg-info
