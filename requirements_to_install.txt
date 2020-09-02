@@ -1,6 +1,0 @@
-!pip install -U transformers==3.0.0
-!pip install --user -U nltk
-!python -m nltk.downloader punkt
-
-!pip install gitpython
-!pip install streamlit

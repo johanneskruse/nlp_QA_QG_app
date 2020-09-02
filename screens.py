@@ -1,6 +1,9 @@
 #===============================================================================
 import streamlit as st
 from functions import *
+
+import nltk
+nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 
 import numpy as np

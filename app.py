@@ -1,13 +1,12 @@
 #===============================================================================
-
 import streamlit as st
+from screens import *
+
 import git
 import os
 
 if not os.path.exists(f"{os.getcwd()}/question_generation/"):
     git.Git(os.getcwd()).clone("https://github.com/patil-suraj/question_generation.git")
-
-from screens import *
 
 #===============================================================================
 
@@ -19,7 +18,7 @@ st.beta_set_page_config(**PAGE_CONFIG)
 def main():
     menu = ["Main", "Question Generation", "Question Answering"]
     choice = st.sidebar.selectbox("Menu", menu)
-
+    
     #===========================================================================
     # Main Page: 
     if choice == "Main":
