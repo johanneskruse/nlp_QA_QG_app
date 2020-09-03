@@ -28,8 +28,6 @@ Next clone you will need to clone the ```question_generation``` git repository. 
 git clone https://github.com/patil-suraj/question_generation.git
 ```
 
-<!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb) -->
-
 All credits to patil-suraj for making a awesome end-to QG framework that mimics 🤗 transformers pipeline for easy inference (https://github.com/patil-suraj/question_generation). 
 
 # ##############################################################################
@@ -47,9 +45,13 @@ Note, in ```functions.py``` Also a clone of hte clone the git repository `questi
 
 # ##############################################################################
 
-# COLAB Notebook
+# COLAB notebooks
+
+## Question Answering and Question Generation
+The final streamlit is essentially a combination of two seperate COLAB prototypes solving Question Answering and Question Generation respectively. They have been merged into one streamlit app with user interface. The seperate notesbook can be found as well. 
+
+## Steamlit app
 To play around with all of models can be both demanding in storage (~6gb) and can be computationally. To cope with this a COLAB notebook has been developed, which enables you to run the streamlit app through COLAB. Models are now stored and computationen made on using Google service. 
-- https://colab.research.google.com/drive/1zjWn1OEvL_OJxQufjCnrtIIq25qT9DMz?usp=sharing
 
 Note you will need to modify the script a little bit by adding your own ngrok to generate the localhost server.
 
