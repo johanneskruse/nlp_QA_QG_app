@@ -1,8 +1,7 @@
 # App for Question Answering & Question Generation
-## Welcome 🏆
-With this streamlit app you are able to play around with state-of-the-art NLP models in an easy user friendly environment.
 
-There are two main task, namely; Question Answering and Question Generation. 
+### Welcome 🏆
+With this streamlit app you are able to play around with state-of-the-art NLP models in an easy user friendly environment. There are two main task, namely; Question Answering and Question Generation. 
 
 # Getting started 
 It's super easy, we promise!
