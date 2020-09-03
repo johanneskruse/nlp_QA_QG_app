@@ -28,6 +28,8 @@ Next clone you will need to clone the ```question_generation``` git repository. 
 git clone https://github.com/patil-suraj/question_generation.git
 ```
 
+<!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb) -->
+
 All credits to patil-suraj for making a awesome end-to QG framework that mimics 🤗 transformers pipeline for easy inference (https://github.com/patil-suraj/question_generation). 
 
 # ##############################################################################
