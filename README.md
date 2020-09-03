@@ -4,7 +4,7 @@ With this streamlit app you are able to play around with state-of-the-art NLP mo
 
 There are two main task, namely; Question Answering and Question Generation. 
 
-# Getting started
+# Getting started 
 It's super easy, we promise!
 
 ## Preprare Envirorment
