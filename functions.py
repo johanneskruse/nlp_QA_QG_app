@@ -30,7 +30,9 @@ class Config:
         # "Transformer QA (Trained on SQuAD)" : "allennlp", # not working [hack]
         "distilbert-base-cased-distilled-squad" : "huggingface_pipline", 
         "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline",
-        "bert-base-multilingual-cased" : "huggingface_pipline"
+        # Multilingual:
+        "mrm8488/bert-multi-uncased-finetuned-xquadv1" : "huggingface_pipline",
+        #"mrm8488/distilbert-multi-finetuned-for-xqua-on-tydiqa" : "huggingface_pipline"
         }
 
 
@@ -43,25 +45,54 @@ class Config:
         "on revenue. On 29 March 2019, its market capitalisation was $46.52 billion."
 
 
-    demo_text_qa = {"context" : "Python is a programming language. Created by Guido van Rossum and first released in 1991.",
-                    "question" : "Who created Python? When was Python first released?"}
+    demo_text_qa = {"context" : 
+                    "Python is a programming language. " \
+                    "Created by Guido van Rossum and first released in 1991.",
+                    "question" : 
+                    "Who created Python? When was Python first released?"}
 
-def list_context(title, list_input, checkbox = False):
-    
-    if checkbox:
-        checkbox_sent = st.checkbox(f"Show {str(title).lower()}")
-        
-        if checkbox_sent:
-            st.write(f"**{title}:**")
-            for sent in list_input:
-                st.write(f"- {sent}")
-    else: 
-        st.write(f"**{title}:**")
-        for sent in list_input:
-            st.write(f"- {sent}")
+    language_lookup = {
+        "ar" : "Arabic",
+        "de" : "German",
+        "el" : "Greek",
+        "en" : "English",
+        "es" : "Spanish",
+        "hi" : "Hindi",
+        "ru" : "Russian",
+        "th" : "Thai",
+        "tr" : "Turkish",
+        "vi" : "Vietnamese",
+        "zh" : "Chinese"
+    }
 
 
+#===============================================================================
 ## Load model
+@st.cache(allow_output_mutation=True)
+def modelsConfig_qa(model):
+    ## Question Answering: 
+    if model == "ELMo-BiDAF (Trained on SQuAD)":
+        model_selected = Predictor.from_path(
+            "https://storage.googleapis.com/allennlp-public-models/bidaf-elmo-model-2020.03.19.tar.gz")
+    elif model == "BiDAG (Trained on SQuAD)":
+        model_selected = Predictor.from_path(
+            "https://storage.googleapis.com/allennlp-public-models/bidaf-model-2020.03.19.tar.gz")
+    elif model == "Transformer QA (Trained on SQuAD)":
+        model_selected = Predictor.from_path(
+            "https://storage.googleapis.com/allennlp-public-models/transformer-qa-2020-05-26.tar.gz")
+    elif model == "distilbert-base-cased-distilled-squad":
+        model_selected = qa_pipline("question-answering", model=f"{model}")
+    elif model == "bert-large-uncased-whole-word-masking-finetuned-squad":
+        model_selected = qa_pipline("question-answering", model=f"{model}")
+    # Multilingual:
+    elif model == "mrm8488/bert-multi-uncased-finetuned-xquadv1":
+        model_selected = qa_pipline("question-answering", model=f"{model}")
+    # elif model == "mrm8488/distilbert-multi-finetuned-for-xqua-on-tydiqa":
+    #     model_selected = qa_pipline("question-answering", model=f"{model}")
+    else:
+        raise Exception("Not a valid model")    
+    return model_selected
+
 @st.cache
 def modelsConfig_qg(model):
     ## Question Generation: 
@@ -77,23 +108,22 @@ def modelsConfig_qg(model):
     return model_selected
 
 
-@st.cache(allow_output_mutation=True)
-def modelsConfig_qa(model):
-    ## Question Answering: 
-    if model == "ELMo-BiDAF (Trained on SQuAD)":
-        model_selected = Predictor.from_path("https://storage.googleapis.com/allennlp-public-models/bidaf-elmo-model-2020.03.19.tar.gz")
-    elif model == "BiDAG (Trained on SQuAD)":
-        model_selected = Predictor.from_path("https://storage.googleapis.com/allennlp-public-models/bidaf-model-2020.03.19.tar.gz")
-    elif model == "Transformer QA (Trained on SQuAD)":
-        model_selected = Predictor.from_path("https://storage.googleapis.com/allennlp-public-models/transformer-qa-2020-05-26.tar.gz")
-    elif model == "distilbert-base-cased-distilled-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    elif model == "bert-large-uncased-whole-word-masking-finetuned-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    else:
-        raise Exception("Not a valid model")    
-    return model_selected
+#===============================================================================
 
+
+def list_context(title, list_input, checkbox = False):
+    
+    if checkbox:
+        checkbox_sent = st.checkbox(f"Show {str(title).lower()}")
+        
+        if checkbox_sent:
+            st.write(f"**{title}:**")
+            for sent in list_input:
+                st.write(f"- {sent}")
+    else: 
+        st.write(f"**{title}:**")
+        for sent in list_input:
+            st.write(f"- {sent}")
 
 
 def qa_compute_answer(model, question, context, model_library):

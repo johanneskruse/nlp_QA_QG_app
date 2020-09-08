@@ -8,6 +8,9 @@ nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 
 import numpy as np
+
+from langdetect import detect
+
 #===============================================================================
 
 # Input variables  
@@ -17,6 +20,8 @@ models_dict_qa = Config.models_qa
 demo_text_qg = Config.demo_text_qg
 demo_text_qa = Config.demo_text_qa["context"]
 demo_ques_qa = Config.demo_text_qa["question"]
+
+language_lookup = Config.language_lookup
 
 
 #===============================================================================
@@ -66,6 +71,13 @@ def QA_screen():
     user_context_qa = st.text_area("Please provide text:", height=100,
                                 value=f"{demo_text_qa}", max_chars=500)
     
+    language = detect(user_context_qa)
+
+    if language in language_lookup:
+        st.write(f"Language detected: {language_lookup[language]}")
+    else: 
+        st.write("Unable to detect language")
+
     #####################################
     #### Context setence by setence ####
     sentences_qa = sent_tokenize(user_context_qa)
