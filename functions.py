@@ -16,12 +16,14 @@ if not os.path.exists(f"{os.getcwd()}/question_generation/"):
 from question_generation.pipelines import pipeline as qg_pipline
 from transformers import pipeline as qa_pipline
 
+from langdetect import detect
 
 #===============================================================================
 class Config:
     models_qg = {
         "Question generation (without answer supervision) [small]" : "qg",
         "Question generation (without answer supervision) [base]" : "qg",
+        "mrm8488/bert-multi-cased-finetuned-xquadv1" : "qg",
     }
     
     models_qa = {
@@ -31,8 +33,7 @@ class Config:
         "distilbert-base-cased-distilled-squad" : "huggingface_pipline", 
         "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline",
         # Multilingual:
-        "mrm8488/bert-multi-uncased-finetuned-xquadv1" : "huggingface_pipline",
-        #"mrm8488/distilbert-multi-finetuned-for-xqua-on-tydiqa" : "huggingface_pipline"
+        # "mrm8488/bert-multi-cased-finetuned-xquadv1" : "huggingface_pipline",
         }
 
 
@@ -74,21 +75,25 @@ def modelsConfig_qa(model):
     if model == "ELMo-BiDAF (Trained on SQuAD)":
         model_selected = Predictor.from_path(
             "https://storage.googleapis.com/allennlp-public-models/bidaf-elmo-model-2020.03.19.tar.gz")
+    
     elif model == "BiDAG (Trained on SQuAD)":
         model_selected = Predictor.from_path(
             "https://storage.googleapis.com/allennlp-public-models/bidaf-model-2020.03.19.tar.gz")
+    
     elif model == "Transformer QA (Trained on SQuAD)":
         model_selected = Predictor.from_path(
             "https://storage.googleapis.com/allennlp-public-models/transformer-qa-2020-05-26.tar.gz")
+    
     elif model == "distilbert-base-cased-distilled-squad":
         model_selected = qa_pipline("question-answering", model=f"{model}")
+    
     elif model == "bert-large-uncased-whole-word-masking-finetuned-squad":
         model_selected = qa_pipline("question-answering", model=f"{model}")
+    
     # Multilingual:
-    elif model == "mrm8488/bert-multi-uncased-finetuned-xquadv1":
+    elif model == "mrm8488/bert-multi-cased-finetuned-xquadv1":
         model_selected = qa_pipline("question-answering", model=f"{model}")
-    # elif model == "mrm8488/distilbert-multi-finetuned-for-xqua-on-tydiqa":
-    #     model_selected = qa_pipline("question-answering", model=f"{model}")
+    
     else:
         raise Exception("Not a valid model")    
     return model_selected
@@ -101,6 +106,9 @@ def modelsConfig_qg(model):
     
     elif model == "Question generation (without answer supervision) [base]":
         model_selected = qg_pipline("e2e-qg", model="valhalla/t5-base-e2e-qg")    
+    
+    # elif model == "mrm8488/bert-multi-cased-finetuned-xquadv1":
+    #     model_selected = qg_pipline("e2e-qg", model="mrm8488/bert-multi-cased-finetuned-xquadv1")    
     
     else:
         raise Exception("Not a valid model")   
@@ -166,3 +174,14 @@ def write_answer(context, answer_span):
     st.write(f"{context[0: answer_span[0]]}"\
             f"**{context[answer_span[0]: answer_span[1]]}**"
             f"{context[answer_span[1]:]}")    
+
+
+def language_detect(text, language_dict=Config.language_lookup, sidebar=False):
+    lan_detect = detect(text)
+    if lan_detect in language_dict:
+        if sidebar:
+            st.sidebar.markdown(f"Detected language: **{language_dict[lan_detect]}**")
+        else:
+            st.write(f"Detected language: **{language_dict[lan_detect]}**")
+    else: 
+        st.write("Unable to detect language")

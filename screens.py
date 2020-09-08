@@ -66,18 +66,16 @@ def QA_screen():
     st.subheader("Model selection")
     option_qa = st.selectbox("Select model:",
         (list(models_dict_qa.keys())))
+    
+
 
     st.subheader("Provide context:")
     user_context_qa = st.text_area("Please provide text:", height=100,
                                 value=f"{demo_text_qa}", max_chars=500)
     
-    language = detect(user_context_qa)
+    
 
-    if language in language_lookup:
-        st.write(f"Language detected: {language_lookup[language]}")
-    else: 
-        st.write("Unable to detect language")
-
+    
     #####################################
     #### Context setence by setence ####
     sentences_qa = sent_tokenize(user_context_qa)
@@ -87,7 +85,9 @@ def QA_screen():
     user_question_qa = st.text_area("Please provide question text:", height=50,
                                 value=f"{demo_ques_qa}", max_chars=200)
     
+
     questions = sent_tokenize(user_question_qa)
+
 
     #####################################
     #### Load the NLP model ####
@@ -101,8 +101,21 @@ def QA_screen():
         
         answers[answer] = answer_index(answer, user_context_qa)
         st.write(f"{i+1}. **Answer**: {answer}")
+
+
+    #####################################
+    #### Language detection ####
+
+    if option_qa == "mrm8488/bert-multi-cased-finetuned-xquadv1": 
+        st.sidebar.markdown("**Note - This model is multilingual and support the following languages:**")
+        st.sidebar.markdown(list(language_lookup.values()))
+        st.sidebar.markdown("")
         
-    
+        st.sidebar.markdown("Context:")
+        language_detect(user_context_qa,sidebar=True)
+        st.sidebar.markdown("Question:")
+        language_detect(user_question_qa,sidebar=True)
+
     #####################################
     #### Highlight answer in context ####
     st.subheader("Answer shown in context")
@@ -119,6 +132,8 @@ def QA_screen():
 
 
     #####################################
+
+
     
     
 #===============================================================================
