@@ -16,8 +16,7 @@ if not os.path.exists(f"{os.getcwd()}/question_generation/"):
 from question_generation.pipelines import pipeline as qg_pipline
 from transformers import pipeline as qa_pipline
 
-Test = "ss"
-
+test = "as"
 
 #===============================================================================
 class Config:
