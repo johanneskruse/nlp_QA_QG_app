@@ -29,7 +29,8 @@ class Config:
         "BiDAG (Trained on SQuAD)" : "allennlp",
         # "Transformer QA (Trained on SQuAD)" : "allennlp", # not working [hack]
         "distilbert-base-cased-distilled-squad" : "huggingface_pipline", 
-        "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline" 
+        "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline",
+        "bert-base-multilingual-cased" : "huggingface_pipline"
         }
 
 
