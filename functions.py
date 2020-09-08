@@ -23,7 +23,7 @@ class Config:
     models_qg = {
         "Question generation (without answer supervision) [small]" : "qg",
         "Question generation (without answer supervision) [base]" : "qg",
-        "mrm8488/bert-multi-cased-finetuned-xquadv1" : "qg",
+        # "mrm8488/bert-multi-cased-finetuned-xquadv1" : "qg",
     }
     
     models_qa = {
@@ -51,6 +51,7 @@ class Config:
                     "Created by Guido van Rossum and first released in 1991.",
                     "question" : 
                     "Who created Python? When was Python first released?"}
+
 
     language_lookup = {
         "ar" : "Arabic",
