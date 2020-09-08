@@ -17,11 +17,7 @@ from question_generation.pipelines import pipeline as qg_pipline
 from transformers import pipeline as qa_pipline
 
 pp = "test"
-pp = "test"
-pp = "test"
-pp = "test"
-pp = "test"
-pp = "test"
+
 
 #===============================================================================
 class Config:
