@@ -11,7 +11,7 @@ To install necesarry dependencies simple run
 ```
 pip install -r requirements.txt
 ```
-**Note AllenNLP is currently only supported on Mac and Linux environment.**
+**Note AllenNLP is currently only supported on Mac and Linux environment. To run this on Windows comment/remove the AllenNLP related models (```functions.py``` and ```requirements.txt```) and install PyTorch.**
 
 This will intall the packages: 
 - streamlit 

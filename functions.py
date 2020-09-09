@@ -2,9 +2,7 @@
 import streamlit as st
 
 from allennlp.predictors.predictor import Predictor
-import allennlp_models.rc
 
-import torch
 import transformers
 
 import git
@@ -23,7 +21,6 @@ class Config:
     models_qg = {
         "Question generation (without answer supervision) [small]" : "qg",
         "Question generation (without answer supervision) [base]" : "qg",
-        # "mrm8488/bert-multi-cased-finetuned-xquadv1" : "qg",
     }
     
     models_qa = {
@@ -107,10 +104,7 @@ def modelsConfig_qg(model):
     
     elif model == "Question generation (without answer supervision) [base]":
         model_selected = qg_pipline("e2e-qg", model="valhalla/t5-base-e2e-qg")    
-    
-    # elif model == "mrm8488/bert-multi-cased-finetuned-xquadv1":
-    #     model_selected = qg_pipline("e2e-qg", model="mrm8488/bert-multi-cased-finetuned-xquadv1")    
-    
+        
     else:
         raise Exception("Not a valid model")   
 
