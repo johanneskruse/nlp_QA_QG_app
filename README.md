@@ -11,7 +11,6 @@ To install necesarry dependencies simple run
 ```
 pip install -r requirements.txt
 ```
-**Note AllenNLP is currently only supported on Mac and Linux environment. To run this on Windows comment/remove the AllenNLP related models (```functions.py``` and ```requirements.txt```) and install PyTorch.**
 
 This will intall the packages: 
 - streamlit 
@@ -28,6 +27,9 @@ git clone https://github.com/patil-suraj/question_generation.git
 ```
 
 All credits to patil-suraj for making a awesome end-to QG framework that mimics 🤗 transformers pipeline for easy inference (https://github.com/patil-suraj/question_generation). 
+
+
+**Note AllenNLP is currently only supported on Mac and Linux environment. To run this on Windows you will have to comment/remove the AllenNLP related stuff (```functions.py``` and ```requirements.txt```) and install PyTorch yourself.**
 
 # ##############################################################################
 
