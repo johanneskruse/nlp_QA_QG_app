@@ -30,7 +30,7 @@ class Config:
         "distilbert-base-cased-distilled-squad" : "huggingface_pipline", 
         "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline",
         # Multilingual:
-        # "mrm8488/bert-multi-cased-finetuned-xquadv1" : "huggingface_pipline",
+        "mrm8488/bert-multi-cased-finetuned-xquadv1 [multilingual]" : "huggingface_pipline",
         }
 
 
@@ -89,7 +89,8 @@ def modelsConfig_qa(model):
         model_selected = qa_pipline("question-answering", model=f"{model}")
     
     # Multilingual:
-    elif model == "mrm8488/bert-multi-cased-finetuned-xquadv1":
+    elif model == "mrm8488/bert-multi-cased-finetuned-xquadv1 [multilingual]":
+        model = "mrm8488/bert-multi-cased-finetuned-xquadv1"
         model_selected = qa_pipline("question-answering", model=f"{model}")
     
     else:
@@ -104,7 +105,7 @@ def modelsConfig_qg(model):
     
     elif model == "Question generation (without answer supervision) [base]":
         model_selected = qg_pipline("e2e-qg", model="valhalla/t5-base-e2e-qg")    
-        
+
     else:
         raise Exception("Not a valid model")   
 
