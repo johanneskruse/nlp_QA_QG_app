@@ -19,6 +19,7 @@ This will intall the packages:
 - allennlp (1.0.0)
 - allennlp_models (1.0.0)
 - transformers (3.0.0)
+- langdetect
 
 Next clone you will need to clone the ```question_generation``` git repository. This can either be done in terminal or simple by running the app, as ```functions.py``` will do this for you.
 
