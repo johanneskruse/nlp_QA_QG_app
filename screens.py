@@ -106,7 +106,7 @@ def QA_screen():
     #####################################
     #### Language detection ####
 
-    if option_qa == "mrm8488/bert-multi-cased-finetuned-xquadv1": 
+    if option_qa == "mrm8488/bert-multi-cased-finetuned-xquadv1 [multilingual]": 
         st.sidebar.markdown("**Note - This model is multilingual and support the following languages:**")
         st.sidebar.markdown(list(language_lookup.values()))
         st.sidebar.markdown("")
