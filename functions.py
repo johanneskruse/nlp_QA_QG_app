@@ -11,8 +11,8 @@ import os
 if not os.path.exists(f"{os.getcwd()}/question_generation/"):
     git.Git(os.getcwd()).clone("https://github.com/patil-suraj/question_generation.git")
 
-from question_generation.pipelines import pipeline as qg_pipline
-from transformers import pipeline as qa_pipline
+from question_generation.pipelines import pipeline as qg_pipeline
+from transformers import pipeline as qa_pipeline
 
 from langdetect import detect
 
@@ -83,15 +83,15 @@ def modelsConfig_qa(model):
             "https://storage.googleapis.com/allennlp-public-models/transformer-qa-2020-05-26.tar.gz")
     
     elif model == "distilbert-base-cased-distilled-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
+        model_selected = qa_pipeline("question-answering", model=f"{model}")
     
     elif model == "bert-large-uncased-whole-word-masking-finetuned-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
+        model_selected = qa_pipeline("question-answering", model=f"{model}")
     
     # Multilingual:
     elif model == "mrm8488/bert-multi-cased-finetuned-xquadv1 [multilingual]":
         model = "mrm8488/bert-multi-cased-finetuned-xquadv1"
-        model_selected = qa_pipline("question-answering", model=f"{model}")
+        model_selected = qa_pipeline("question-answering", model=f"{model}")
     
     else:
         raise Exception("Not a valid model")    
@@ -101,10 +101,10 @@ def modelsConfig_qa(model):
 def modelsConfig_qg(model):
     ## Question Generation: 
     if model == "Question generation (without answer supervision) [small]":
-        model_selected = qg_pipline("e2e-qg", model="valhalla/t5-small-e2e-qg")
+        model_selected = qg_pipeline("e2e-qg", model="valhalla/t5-small-e2e-qg")
     
     elif model == "Question generation (without answer supervision) [base]":
-        model_selected = qg_pipline("e2e-qg", model="valhalla/t5-base-e2e-qg")    
+        model_selected = qg_pipeline("e2e-qg", model="valhalla/t5-base-e2e-qg")    
 
     else:
         raise Exception("Not a valid model")   
