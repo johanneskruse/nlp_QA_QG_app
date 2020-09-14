@@ -15,7 +15,7 @@ pip install -r requirements.txt
 This will intall the packages: 
 - streamlit 
 - gitpython
-- nltk (python -m nltk.downloader punkt)
+- nltk
 - allennlp (1.0.0)
 - allennlp_models (1.0.0)
 - transformers (3.0.0)
@@ -67,8 +67,9 @@ For the Question Answering module four pre-trained models have been implemented:
 2. BiDAG (Trained on SQuAD)
 3. DistilBERT (distilbert-base-cased-distilled-squad)
 4. BERT (bert-large-uncased-whole-word-masking-finetuned-squad)
+5. Finetuned BERT multilingual base model [cased] (mrm8488/bert-multi-cased-finetuned-xquadv1)
 
-Where 1) and 2) are AllenNLP models and 3) and 4) are HuggingFace models. 
+Where 1) and 2) are AllenNLP models and 3), 4), and 5) are HuggingFace models. 
 
 ## Question Generation
 The Question Generation is a pre-trained model with three pipeline tasks:
