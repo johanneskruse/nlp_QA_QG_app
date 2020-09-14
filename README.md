@@ -53,7 +53,7 @@ Note, in ```functions.py``` Also a clone of hte clone the git repository `questi
 The final streamlit is essentially a combination of two seperate COLAB prototypes solving Question Answering and Question Generation respectively. They have been merged into one streamlit app with user interface. The seperate notesbook can be found as well. 
 
 ## Steamlit app
-To play around with all of models can be both demanding in storage (~6gb) and can be computationally. To cope with this a COLAB notebook has been developed, which enables you to run the streamlit app through COLAB. Models are now stored and computationen made on using Google service. 
+To play around with all of models can be both demanding in storage (~5gb) and can be computationally. To cope with this a COLAB notebook has been developed, which enables you to run the streamlit app through COLAB. Models are now stored and computationen made on using Google service. 
 
 Note you will need to modify the script a little bit by adding your own ngrok to generate the localhost server.
 
