@@ -80,3 +80,9 @@ The Question Generation is a pre-trained model with three pipeline tasks:
 
 With the option of using a model sizes "small" or a "base" (https://huggingface.co/models). All models are easily implemented but for this demo ***only the end-to-end question generation is included in this demo (both the small and base model)***. For fine-tuning the models please look at the patil-suraj's git repository. 
 
+# Store and Run models from local machine
+To run the models on from your local machine simple download the model (one-by-one): 
+```
+python run_locally/download_model_local.py 
+```
+The models will be stored in ```models```, next use the ```screens.py``` and ```functions.py``` in the this folder instead. This will be without the AllenNLP option.
