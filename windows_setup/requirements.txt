@@ -1,0 +1,5 @@
+streamlit
+gitpython
+nltk
+transformers==3.0.0
+langdetect
