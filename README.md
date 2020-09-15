@@ -21,7 +21,7 @@ This will intall the packages:
 - transformers (3.0.0)
 - langdetect
 
-Next clone you will need to clone the ```question_generation``` git repository. This can either be done in terminal or simple by running the app, as ```functions.py``` will do this for you.
+The ```question_generation``` git repository has been added. The code will check for the repository exist and if not you can either do it yourself or simple by running the app, as ```functions.py``` will do this for you.
 
 ```
 git clone https://github.com/patil-suraj/question_generation.git
