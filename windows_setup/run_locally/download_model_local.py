@@ -1,7 +1,6 @@
 # Download models of interst
 
 from transformers import pipeline as qa_pipline
-#from question_generation.pipelines import pipeline as qg_pipline
 import os 
 from transformers import AutoTokenizer, AutoModelWithLMHead
 
@@ -13,10 +12,6 @@ if not os.path.exists(f'{os.getcwd()}/models'):
 
 print(f'Your wokring path is: {os.getcwd()}')
 
-
-
-
-
 #===============================================================================
 class models:
     models_qg = {
@@ -26,7 +21,6 @@ class models:
     
     models_qa = {
         "distilbert-base-cased-distilled-squad" : "huggingface_pipline", 
-        "bert-base-uncased"  : "huggingface_pipline",
         "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline",
         "mrm8488/bert-multi-cased-finetuned-xquadv1"  : "huggingface_pipline" 
         }
@@ -34,27 +28,12 @@ class models:
     model_type = ['Quesion Answering', 'Question Generation']
 
 
-def modelsConfig_qa(model):
-    ## Question Answering: 
-    if model == "distilbert-base-cased-distilled-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    elif model == "bert-large-uncased-whole-word-masking-finetuned-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    elif model == "bert-base-uncased":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    else:
-        raise Exception("Not a valid model")    
-    return model_selected
-
-
 def modelsConfig_qg(model):
     ## Question Generation: 
     if model == "Question generation (without answer supervision) [small]":
-        #model_selected = qg_pipline("e2e-qg", model="valhalla/t5-small-e2e-qg")
         model_name = "valhalla/t5-small-e2e-qg"
     
     elif model == "Question generation (without answer supervision) [base]":
-        #model_selected = qg_pipline("e2e-qg", model="valhalla/t5-base-e2e-qg")  
         model_name = "valhalla/t5-base-e2e-qg"  
     
     else:
@@ -99,4 +78,8 @@ elif task == 'Question Generation':
 
     AutoTokenizer.from_pretrained(model_qg_name).save_pretrained(save_directory=f'{os.getcwd()}/models/{model}')
     AutoModelWithLMHead.from_pretrained(model_qg_name).save_pretrained(save_directory=f'{os.getcwd()}/models/{model}')
+
+
+print(f'Download complete')
+
 
