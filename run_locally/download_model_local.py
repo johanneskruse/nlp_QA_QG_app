@@ -20,29 +20,12 @@ class models:
     }
     
     models_qa = {
-        #"ELMo-BiDAF (Trained on SQuAD)" : "allennlp",
-        #"BiDAG (Trained on SQuAD)" : "allennlp",
-        # "Transformer QA (Trained on SQuAD)" : "allennlp", # not working [hack]
         "distilbert-base-cased-distilled-squad" : "huggingface_pipline", 
-        "bert-base-uncased"  : "huggingface_pipline",
         "bert-large-uncased-whole-word-masking-finetuned-squad"  : "huggingface_pipline",
         "mrm8488/bert-multi-cased-finetuned-xquadv1"  : "huggingface_pipline" 
         }
 
     model_type = ['Quesion Answering', 'Question Generation']
-
-
-def modelsConfig_qa(model):
-    ## Question Answering: 
-    if model == "distilbert-base-cased-distilled-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    elif model == "bert-large-uncased-whole-word-masking-finetuned-squad":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    elif model == "bert-base-uncased":
-        model_selected = qa_pipline("question-answering", model=f"{model}")
-    else:
-        raise Exception("Not a valid model")    
-    return model_selected
 
 
 def modelsConfig_qg(model):
