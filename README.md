@@ -23,7 +23,6 @@ This will intall the packages:
 - transformers (3.0.0)
 - langdetect
 
-### ```question_generation```
 The ```question_generation``` is a git repository that has been added used for Question Generation. The ```functions.py``` script will check that it exists and if not download it. 
 
 All credits to patil-suraj for making an awesome end-to QG framework that mimics 🤗 transformers pipeline for easy inference (https://github.com/patil-suraj/question_generation). 
