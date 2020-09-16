@@ -84,6 +84,6 @@ With the option of using a model sizes "small" or a "base" (https://huggingface.
 # Store and Run models from local machine
 It is possible to store the models on your local machine, to do so run
 ```
-python run_locally/download_model_local.py 
+python run_locally\download_model_local.py 
 ```
 This will allow you to download the models one-by-one. The models are stored in ```models```. To run the models using the locally stored models replace ```screens.py``` and ```functions.py``` with the repective file from ```run_locally```. Note this will be without the AllenNLP models.
